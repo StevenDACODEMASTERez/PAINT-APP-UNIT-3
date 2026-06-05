@@ -30,17 +30,6 @@ void draw() {
   strokeWeight(1);
   fill(#00AEE0);
   rect(0, 0, width, 200);
-  if (FLAMINGON) {
-    stroke(160);
-    rect(45, 45, 110, 110);
-    noStroke();
-    
-    
-    rect(250, 250, 300, 250);
-    color(0);
-    stroke(0);
-    
-  }
   image(FLAMINGO, 50, 50, 100, 100);
   image(MONKEY, 250, 50, 100, 100);
   //fill(0);
@@ -98,7 +87,35 @@ void mousePressed() {
   if (dist(mouseX, mouseY, 550, sliderY) < 20) {
     draggingSlider = true;
   }
+  if (dist(mouseX, mouseY, 600, 200) <= 50) {
+  }
+  if (mouseX > 10 && mouseX < 60 && mouseY > 520 && mouseY<540){
+  selectInput("image","openImage");
+  }
+  if (mouseX > 10 && mouseX < 60 && mouseY > 550 && mouseY<570){
+  selectOutput("iMAGE","saveImage");
 }
+}
+
+void saveImage(File f) {
+  if (f != null) {
+    PImage canvas = get(71, 1, width-71, height-1);
+    canvas.save(f.getAbsolutePath());
+  }
+}
+
+void openImage(File f) {
+  if (f != null) {
+    int n = 0;
+    while (n < 10) {
+      PImage pic = loadImage(f.getPath());
+      image(pic, 0, 0);
+      n = n + 1;
+    }
+  }
+}
+
+
 
 void keyReleased(){
   if(key=='e'){
