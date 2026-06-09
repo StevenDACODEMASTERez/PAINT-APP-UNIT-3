@@ -30,6 +30,7 @@ void draw() {
   strokeWeight(1);
   fill(#00AEE0);
   rect(0, 0, width, 200);
+  tactile(80, 70, 100);
   image(FLAMINGO, 50, 50, 100, 100);
   image(MONKEY, 250, 50, 100, 100);
   //fill(0);
@@ -41,6 +42,11 @@ void draw() {
   stroke(0);
   strokeWeight(map(sliderY, 100, 500, 1, 20));
   line(520, 520, 580, 520);
+  rect(10, 520, 50, 20);
+  rect(10, 550, 50, 20);
+  tactile(500, 50, 50);
+  fill(255,255,0);
+  rect(500, 50, 50, 20);
 }
 
 void mouseDragged() {
@@ -70,8 +76,11 @@ void mouseDragged() {
 }
 void mouseReleased() {
 //if(x > 200, x <250
-  
-  
+tactile(100, 50, 150);
+  if (mouseX > 500 && mouseX < 550 && mouseY > 50 && mouseY < 70) {
+  x=#FFFF00;
+  }
+  tactile(80, 50, 50);
   if (mouseX > 50 && mouseX < 150 && mouseY > 50 && mouseY < 150) {
     FLAMINGON = !FLAMINGON;
     MONKEYE = false;
@@ -123,5 +132,13 @@ void keyReleased(){
   }
   if(key=='s'){
     x=0;
+  }
+}
+
+void tactile (int y, int r, int x) {
+  if (dist(x, y, mouseX, mouseY) < r) {
+    stroke(255);
+  } else {
+    stroke(lightpink);
   }
 }
