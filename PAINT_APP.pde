@@ -45,7 +45,7 @@ void draw() {
   rect(10, 520, 50, 20);
   rect(10, 550, 50, 20);
   tactile(500, 50, 50);
-  fill(255,255,0);
+  fill(255, 255, 0);
   rect(500, 50, 50, 20);
 }
 
@@ -75,10 +75,10 @@ void mouseDragged() {
   }
 }
 void mouseReleased() {
-//if(x > 200, x <250
-tactile(100, 50, 150);
+  //if(x > 200, x <250
+  tactile(100, 50, 150);
   if (mouseX > 500 && mouseX < 550 && mouseY > 50 && mouseY < 70) {
-  x=#FFFF00;
+    x=#FFFF00;
   }
   tactile(80, 50, 50);
   if (mouseX > 50 && mouseX < 150 && mouseY > 50 && mouseY < 150) {
@@ -98,17 +98,18 @@ void mousePressed() {
   }
   if (dist(mouseX, mouseY, 600, 200) <= 50) {
   }
-  if (mouseX > 10 && mouseX < 60 && mouseY > 520 && mouseY<540){
-  selectInput("image","openImage");
+  if (mouseX > 10 && mouseX < 60 && mouseY > 520 && mouseY<540) {
+    selectInput("image", "openImage");
   }
-  if (mouseX > 10 && mouseX < 60 && mouseY > 550 && mouseY<570){
-  selectOutput("iMAGE","saveImage");
-}
+  if (mouseX > 10 && mouseX < 60 && mouseY > 550 && mouseY<570) {
+    selectOutput("iMAGE", "saveImage");
+  }
 }
 
 void saveImage(File f) {
   if (f != null) {
-    PImage canvas = get(71, 1, width-71, height-1);
+    //PImage canvas = get(71, 1, width-71, height-1);
+    PImage canvas = get(10, 1, width-40, height-40);
     canvas.save(f.getAbsolutePath());
   }
 }
@@ -126,11 +127,11 @@ void openImage(File f) {
 
 
 
-void keyReleased(){
-  if(key=='e'){
+void keyReleased() {
+  if (key=='e') {
     x=255;
   }
-  if(key=='s'){
+  if (key=='s') {
     x=0;
   }
 }
